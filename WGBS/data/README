@@ -1,0 +1,9 @@
+This directory should contain subfolders for each of the steps in the WGBS pipeline:
+a) input_data
+b) fastqc
+c) trimgalore
+d) methylation_index
+e) methylation_calling
+....
+
+See the workflow.sh script for more information.

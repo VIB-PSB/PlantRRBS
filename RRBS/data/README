@@ -1,0 +1,9 @@
+This directory should contain subfolders for each of the steps in the RRBS pipeline:
+a) input_data
+b) fastqc
+c) trimgalore
+d) methylation_index
+e) methylation_calling
+....
+
+

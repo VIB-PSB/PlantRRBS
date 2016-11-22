@@ -1,0 +1,25 @@
+---
+title: "Annotation of differentially methylated sites""
+---
+
+Annotation 
+Promoters are defined by options at read.transcript.features function. The
+default option is to take -1000,+1000bp around the TSS
+```{r annot, cache=TRUE}
+gene.obj <- read.transcript.features("/path/to/reference/osaindica.gff3")
+sourceDir="/path/to/data/"
+diffFiles <- list.files(path=sourceDir, pattern="diff.all.txt", recursive=T, full.names=T)
+for f in diffFiles{
+  parent=dirname(f)
+  setwd(parent)
+  rdataFile <- list.files(path=parent,pattern="*.RData",recursive=F)
+  load(rdataFile)
+  diffAnn <- annotate.WithGenicParts(myDiff25p, gene.obj)
+  getTargetAnnotationStats(diffAnn,percentage=TRUE,precedence=TRUE)
+  plotTargetAnnotation(diffAnn,precedence=TRUE, main="differential methylation annotation")
+  
+}
+
+
+
+```
